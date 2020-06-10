@@ -5,13 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run (Typescript)",
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/index.js"
+            "args": ["${workspaceFolder}/src/index.ts"],
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
         }
     ]
 }
