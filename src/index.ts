@@ -50,7 +50,7 @@ app.post("/", async (req: Request, res : Response) => {
 
             pool.query("insert into samples (dt, value) values ($1, $2)", [samples[0].dt.toISOString(), samples[0].getValue(Smartme.Obis.ActiveEnergyTotalImport)]).then(result => {
                 info(`Inserted ${result.rowCount} rows in database`);
-            }).catch(err => {
+            }).catch((err : Error) => {
                 warn(`Unable to insert data: ${err.message}`);
             });
 
