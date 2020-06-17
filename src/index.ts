@@ -36,6 +36,8 @@ app.use(bodyparser.raw());
 app.post("/", async (req: Request, res : Response) => {
     // get the buffer from the body
     const buf : Buffer = req.body;
+    debug(`content-type header <${req.headers["content-type"]}>`);
+    debug(`base64 encoded buffer <${buf.toString("base64")}>`);
 
     // respond
     res.status(200).send("OK").end();
