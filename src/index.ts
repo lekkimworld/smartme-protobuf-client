@@ -50,18 +50,18 @@ app.post("/", async (req: Request, res : Response) => {
             info(`Received sample from ${samples[0].deviceId} of ${wh/1000} kWh at ${samples[0].dt.toISOString()}`);
             
             // debug
-            debug(`${Smartme.Obis.ActiveEnergyTotalExport} = ${sample.getValue(Smartme.Obis.ActiveEnergyTotalExport)}`);
-            debug(`${Smartme.Obis.ActiveEnergyTotalImport} = ${sample.getValue(Smartme.Obis.ActiveEnergyTotalImport)}`);
-            debug(`${Smartme.Obis.ActivePowerPhaseL1} = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL1)}`);
-            debug(`${Smartme.Obis.ActivePowerPhaseL2} = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL2)}`);
-            debug(`${Smartme.Obis.ActivePowerPhaseL3} = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL3)}`);
-            debug(`${Smartme.Obis.ActivePowerTotal} = ${sample.getValue(Smartme.Obis.ActivePowerTotal)}`);
-            debug(`${Smartme.Obis.CurrentPhaseL1} = ${sample.getValue(Smartme.Obis.CurrentPhaseL1)}`);
-            debug(`${Smartme.Obis.CurrentPhaseL2} = ${sample.getValue(Smartme.Obis.CurrentPhaseL2)}`);
-            debug(`${Smartme.Obis.CurrentPhaseL3} = ${sample.getValue(Smartme.Obis.CurrentPhaseL3)}`);
-            debug(`${Smartme.Obis.VoltagePhaseL1} = ${sample.getValue(Smartme.Obis.VoltagePhaseL1)}`);
-            debug(`${Smartme.Obis.VoltagePhaseL2} = ${sample.getValue(Smartme.Obis.VoltagePhaseL2)}`);
-            debug(`${Smartme.Obis.VoltagePhaseL3} = ${sample.getValue(Smartme.Obis.VoltagePhaseL3)}`);
+            debug(`ActiveEnergyTotalExport = ${sample.getValue(Smartme.Obis.ActiveEnergyTotalExport)}`);
+            debug(`ActiveEnergyTotalImport = ${sample.getValue(Smartme.Obis.ActiveEnergyTotalImport)}`);
+            debug(`ActivePowerPhaseL1      = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL1)}`);
+            debug(`ActivePowerPhaseL2      = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL2)}`);
+            debug(`ActivePowerPhaseL3      = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL3)}`);
+            debug(`ActivePowerTotal        = ${sample.getValue(Smartme.Obis.ActivePowerTotal)}`);
+            debug(`CurrentPhaseL1          = ${sample.getValue(Smartme.Obis.CurrentPhaseL1)}`);
+            debug(`CurrentPhaseL2          = ${sample.getValue(Smartme.Obis.CurrentPhaseL2)}`);
+            debug(`CurrentPhaseL3          = ${sample.getValue(Smartme.Obis.CurrentPhaseL3)}`);
+            debug(`VoltagePhaseL1          = ${sample.getValue(Smartme.Obis.VoltagePhaseL1)}`);
+            debug(`VoltagePhaseL2          = ${sample.getValue(Smartme.Obis.VoltagePhaseL2)}`);
+            debug(`VoltagePhaseL3          = ${sample.getValue(Smartme.Obis.VoltagePhaseL3)}`);
 
             if (!pool) return;
 
