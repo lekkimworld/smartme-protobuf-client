@@ -44,9 +44,24 @@ app.post("/", async (req: Request, res : Response) => {
     
     // decode and log
     decodeSmartmeBuffer(buf).then(samples => {
-        const wh = samples[0].getValue(Smartme.Obis.ActiveEnergyTotalImport);
+        const sample = samples[0];
+        const wh = sample.getValue(Smartme.Obis.ActiveEnergyTotalImport);
         if (wh) {
             info(`Received sample from ${samples[0].deviceId} of ${wh/1000} kWh at ${samples[0].dt.toISOString()}`);
+            
+            // debug
+            debug(`${Smartme.Obis.ActiveEnergyTotalExport} = ${sample.getValue(Smartme.Obis.ActiveEnergyTotalExport)}`);
+            debug(`${Smartme.Obis.ActiveEnergyTotalImport} = ${sample.getValue(Smartme.Obis.ActiveEnergyTotalImport)}`);
+            debug(`${Smartme.Obis.ActivePowerPhaseL1} = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL1)}`);
+            debug(`${Smartme.Obis.ActivePowerPhaseL2} = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL2)}`);
+            debug(`${Smartme.Obis.ActivePowerPhaseL3} = ${sample.getValue(Smartme.Obis.ActivePowerPhaseL3)}`);
+            debug(`${Smartme.Obis.ActivePowerTotal} = ${sample.getValue(Smartme.Obis.ActivePowerTotal)}`);
+            debug(`${Smartme.Obis.CurrentPhaseL1} = ${sample.getValue(Smartme.Obis.CurrentPhaseL1)}`);
+            debug(`${Smartme.Obis.CurrentPhaseL2} = ${sample.getValue(Smartme.Obis.CurrentPhaseL2)}`);
+            debug(`${Smartme.Obis.CurrentPhaseL3} = ${sample.getValue(Smartme.Obis.CurrentPhaseL3)}`);
+            debug(`${Smartme.Obis.VoltagePhaseL1} = ${sample.getValue(Smartme.Obis.VoltagePhaseL1)}`);
+            debug(`${Smartme.Obis.VoltagePhaseL2} = ${sample.getValue(Smartme.Obis.VoltagePhaseL2)}`);
+            debug(`${Smartme.Obis.VoltagePhaseL3} = ${sample.getValue(Smartme.Obis.VoltagePhaseL3)}`);
 
             if (!pool) return;
 
@@ -55,7 +70,7 @@ app.post("/", async (req: Request, res : Response) => {
             }).catch((err : Error) => {
                 warn(`Unable to insert data: ${err.message}`);
             });
-
+            
         } else {
             warn(`Received sample WITHOUT kWh at ${samples[0].dt.toISOString()}`);
         }

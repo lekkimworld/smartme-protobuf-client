@@ -1,6 +1,6 @@
 {
   "name": "smartme-protobuf-client",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Test client for smartme-protobuf-parser that reads the buffer when posted to it and persists the total kWh to a database",
   "main": "src/index.ts",
   "scripts": {
